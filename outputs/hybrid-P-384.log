@@ -1,0 +1,21 @@
+hybrid: label=P-384 server_group=P-384 client_group=P-384 provider_dir=/home/hatch/workspace/goals/postfiat-task-node-connection/hidden_files/task-c2eb7e1a4fe2d5c27079918915653329/pack/../work/oqs-opt-mod n=30 port=18443 expect_fail=0
+date: 2026-11-12 23:35:57 UTC
+openssl version: OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+provider: -rwxrwx--- 1 root nogroup 10511000 Nov 12 23:35 /home/hatch/workspace/goals/postfiat-task-node-connection/hidden_files/task-c2eb7e1a4fe2d5c27079918915653329/pack/../work/oqs-opt-mod/oqsprovider.so
+provider sha256: 35697374ad440b46a9a26281b9d53ea67c8625d51a24bc0c677a8547dfed468b
+server cert: /home/hatch/workspace/goals/postfiat-task-node-connection/hidden_files/task-c2eb7e1a4fe2d5c27079918915653329/pack/../work/certs/ecdsa-server.crt
+server cert:         Signature Algorithm: ecdsa-with-SHA256
+server pid=46376 procstat-before: cpu_total_s=0.090 utime_s=0.090 stime_s=0.000 rss_kb=9492
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Server Temp Key: ECDH, secp384r1, 384 bits
+trace: ClientHello total bytes=267 (incl. 4-byte handshake header)
+trace: key_share extension length=103 list_len=101 group=0x0018 key_exchange_len=97
+Server Temp Key: ECDH, secp384r1, 384 bits
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Verify return code: 0 (ok)
+handshake failures: 0 / 30
+server pid=46376 procstat-after: cpu_total_s=0.250 utime_s=0.240 stime_s=0.010 rss_kb=10092
+handshake summary (P-384, server=P-384 client=P-384): n=30 mean=22.70 ms median=23.00 ms min=21 ms max=26 ms stdev=0.95 ms
+handshake times ms: 24 23 22 21 23 22 22 23 26 23 23 23 24 24 23 23 22 22 23 23 22 22 22 23 23 22 22 22 22 22
+hybrid: DONE label=P-384 server_group=P-384 client_group=P-384
+hybrid: ALL 30 HANDSHAKES OK
