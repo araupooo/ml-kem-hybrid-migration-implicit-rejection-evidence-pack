@@ -1,0 +1,20 @@
+hybrid: label=SecP256r1MLKEM768 server_group=SecP256r1MLKEM768 client_group=SecP256r1MLKEM768 provider_dir=/tmp/mlkem-hybrid-repro.6kqbP3/pack/../work/oqs-opt-mod n=30 port=18443 expect_fail=0
+date: 2026-11-13 00:23:51 UTC
+openssl version: OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+provider: -rwxrwx--- 1 root root 10511000 Nov 13 00:23 /tmp/mlkem-hybrid-repro.6kqbP3/pack/../work/oqs-opt-mod/oqsprovider.so
+provider sha256: 32f64d9cc03b00bf164377451ec5cca0cd3a1fee385b8bb09c74178bbb828e4c
+server cert: /tmp/mlkem-hybrid-repro.6kqbP3/pack/../work/certs/ecdsa-server.crt
+server cert:         Signature Algorithm: ecdsa-with-SHA256
+server pid=107815 procstat-before: cpu_total_s=0.100 utime_s=0.100 stime_s=0.000 rss_kb=9512
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+trace: no Server Temp Key line (handshake did not complete)
+trace: ClientHello total bytes=1411 (incl. 4-byte handshake header)
+trace: key_share extension length=1255 list_len=1253 group=0x11eb key_exchange_len=1249
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Verify return code: 0 (ok)
+handshake failures: 0 / 30
+server pid=107815 procstat-after: cpu_total_s=0.200 utime_s=0.190 stime_s=0.010 rss_kb=11444
+handshake summary (SecP256r1MLKEM768, server=SecP256r1MLKEM768 client=SecP256r1MLKEM768): n=30 mean=29.90 ms median=30.00 ms min=29 ms max=32 ms stdev=0.96 ms
+handshake times ms: 30 29 29 29 29 30 29 29 31 30 30 29 29 30 30 30 29 29 32 32 32 30 30 31 31 30 30 29 29 30
+hybrid: DONE label=SecP256r1MLKEM768 server_group=SecP256r1MLKEM768 client_group=SecP256r1MLKEM768
+hybrid: ALL 30 HANDSHAKES OK
