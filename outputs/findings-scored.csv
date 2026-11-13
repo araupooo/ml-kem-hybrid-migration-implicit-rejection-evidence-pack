@@ -1,0 +1,11 @@
+id,title,severity,score,impact,likelihood
+F-01,No X25519 hybrid group exists for ML-KEM-1024 in oqs-provider 0.12.0,Medium,12,3,4
+F-02,Hybrid ClientHello key_share is an order of magnitude larger than X25519,Low,6,2,3
+F-03,Hybrid handshake latency overhead over X25519 is measurable but small in absolute terms,Low,6,2,3
+F-04,Implicit rejection is silent: tampered ciphertexts return success with a pseudorandom secret,Medium,9,3,3
+F-05,"The decapsulation API takes no ciphertext length, so the FIPS 203 length check is the caller's job",Medium,9,3,3
+F-06,Only X25519MLKEM768 is RFC 10024 Recommended; pre-standard draft groups are obsolete,Low,6,2,3
+F-07,ML-KEM-768 is the FIPS 203 recommended default; parameter-set choice is a security-category choice,Info,2,1,2
+F-08,"Hybrid share ordering differs by group: ML-KEM secret first for X25519, ECDHE first for SecP groups",Info,3,1,3
+F-09,"Server CPU per hybrid handshake is higher than classical, dominated by ML-KEM operations",Low,6,2,3
+F-10,"Encapsulation randomness is recoverable by the decapsulator, so a weak random-bit generator compromises both algorithms",Medium,8,4,2

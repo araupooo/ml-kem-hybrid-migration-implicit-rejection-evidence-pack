@@ -1,0 +1,716 @@
+{
+  "sizes": {
+    "ML-KEM-512": {
+      "ek": {
+        "got": 800,
+        "expected": 800,
+        "status": "OK"
+      },
+      "dk": {
+        "got": 1632,
+        "expected": 1632,
+        "status": "OK"
+      },
+      "ct": {
+        "got": 768,
+        "expected": 768,
+        "status": "OK"
+      },
+      "ss": {
+        "got": 32,
+        "expected": 32,
+        "status": "OK"
+      }
+    },
+    "ML-KEM-768": {
+      "ek": {
+        "got": 1184,
+        "expected": 1184,
+        "status": "OK"
+      },
+      "dk": {
+        "got": 2400,
+        "expected": 2400,
+        "status": "OK"
+      },
+      "ct": {
+        "got": 1088,
+        "expected": 1088,
+        "status": "OK"
+      },
+      "ss": {
+        "got": 32,
+        "expected": 32,
+        "status": "OK"
+      }
+    },
+    "ML-KEM-1024": {
+      "ek": {
+        "got": 1568,
+        "expected": 1568,
+        "status": "OK"
+      },
+      "dk": {
+        "got": 3168,
+        "expected": 3168,
+        "status": "OK"
+      },
+      "ct": {
+        "got": 1568,
+        "expected": 1568,
+        "status": "OK"
+      },
+      "ss": {
+        "got": 32,
+        "expected": 32,
+        "status": "OK"
+      }
+    },
+    "X25519": {
+      "pubkey": {
+        "got": 32,
+        "expected": 32,
+        "status": "OK"
+      },
+      "ss": {
+        "got": 32,
+        "expected": 32,
+        "status": "OK"
+      }
+    },
+    "P-256": {
+      "pubkey": {
+        "got": 65,
+        "expected": 65,
+        "status": "OK"
+      },
+      "ss": {
+        "got": 32,
+        "expected": 32,
+        "status": "OK"
+      }
+    },
+    "P-384": {
+      "pubkey": {
+        "got": 97,
+        "expected": 97,
+        "status": "OK"
+      },
+      "ss": {
+        "got": 48,
+        "expected": 48,
+        "status": "OK"
+      }
+    }
+  },
+  "controls": {
+    "ML-KEM-512": [
+      [
+        100,
+        100
+      ],
+      [
+        100,
+        100
+      ]
+    ],
+    "ML-KEM-768": [
+      [
+        100,
+        100
+      ],
+      [
+        100,
+        100
+      ]
+    ],
+    "ML-KEM-1024": [
+      [
+        100,
+        100
+      ],
+      [
+        100,
+        100
+      ]
+    ]
+  },
+  "cases": [
+    {
+      "scheme": "ML-KEM-1024",
+      "case": "all_zero_ct",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-1024",
+      "case": "control",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 50,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 50,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 100,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-1024",
+      "case": "flip_byte",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-1024",
+      "case": "flip_first_bit",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-1024",
+      "case": "flip_last_bit",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-1024",
+      "case": "flip_mid_bit",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-1024",
+      "case": "random_ct",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-1024",
+      "case": "wrong_sk",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-512",
+      "case": "all_zero_ct",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-512",
+      "case": "control",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 50,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 50,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 100,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-512",
+      "case": "flip_byte",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-512",
+      "case": "flip_first_bit",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-512",
+      "case": "flip_last_bit",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-512",
+      "case": "flip_mid_bit",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-512",
+      "case": "random_ct",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-512",
+      "case": "wrong_sk",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-768",
+      "case": "all_zero_ct",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-768",
+      "case": "control",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 50,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 50,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 100,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-768",
+      "case": "flip_byte",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-768",
+      "case": "flip_first_bit",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-768",
+      "case": "flip_last_bit",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-768",
+      "case": "flip_mid_bit",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-768",
+      "case": "random_ct",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    },
+    {
+      "scheme": "ML-KEM-768",
+      "case": "wrong_sk",
+      "runs": [
+        {
+          "run": 1,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        },
+        {
+          "run": 2,
+          "n": 50,
+          "rc_success": 50,
+          "ss_eq_valid": 0,
+          "deterministic": 50
+        }
+      ],
+      "n": 100,
+      "rc_success": 100,
+      "ss_eq_valid": 0,
+      "deterministic": 100
+    }
+  ]
+}

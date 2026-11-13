@@ -1,0 +1,41 @@
+bench_kem: n=200 liboqs=0.16.0 openssl=OpenSSL 3.0.13 30 Jan 2024
+OQS_KEM: ML-KEM-512 claimed_nist_level=1 ind_cca=true
+SIZE: ML-KEM-512 ek=800 (expected 800) OK
+SIZE: ML-KEM-512 dk=1632 (expected 1632) OK
+SIZE: ML-KEM-512 ct=768 (expected 768) OK
+SIZE: ML-KEM-512 ss=32 (expected 32) OK
+CONTROL: ML-KEM-512 encaps/decaps ss_match=100/100 ss_e_first8=d8cb48f4 ss_d_first8=d8cb48f4
+CSV: ML-KEM-512 keygen n=200 mean_us=11.45 min_us=11.07 max_us=22.26 ops_per_s=87368.3
+CSV: ML-KEM-512 encaps n=200 mean_us=12.75 min_us=12.38 max_us=23.96 ops_per_s=78418.2
+CSV: ML-KEM-512 decaps n=200 mean_us=15.93 min_us=15.58 max_us=26.20 ops_per_s=62771.5
+OQS_KEM: ML-KEM-768 claimed_nist_level=3 ind_cca=true
+SIZE: ML-KEM-768 ek=1184 (expected 1184) OK
+SIZE: ML-KEM-768 dk=2400 (expected 2400) OK
+SIZE: ML-KEM-768 ct=1088 (expected 1088) OK
+SIZE: ML-KEM-768 ss=32 (expected 32) OK
+CONTROL: ML-KEM-768 encaps/decaps ss_match=100/100 ss_e_first8=dfd50914 ss_d_first8=dfd50914
+CSV: ML-KEM-768 keygen n=200 mean_us=19.44 min_us=18.86 max_us=29.61 ops_per_s=51448.0
+CSV: ML-KEM-768 encaps n=200 mean_us=19.95 min_us=19.43 max_us=33.37 ops_per_s=50114.9
+CSV: ML-KEM-768 decaps n=200 mean_us=25.61 min_us=24.81 max_us=37.47 ops_per_s=39053.9
+OQS_KEM: ML-KEM-1024 claimed_nist_level=5 ind_cca=true
+SIZE: ML-KEM-1024 ek=1568 (expected 1568) OK
+SIZE: ML-KEM-1024 dk=3168 (expected 3168) OK
+SIZE: ML-KEM-1024 ct=1568 (expected 1568) OK
+SIZE: ML-KEM-1024 ss=32 (expected 32) OK
+CONTROL: ML-KEM-1024 encaps/decaps ss_match=100/100 ss_e_first8=79eb2e5a ss_d_first8=79eb2e5a
+CSV: ML-KEM-1024 keygen n=200 mean_us=24.58 min_us=23.78 max_us=34.59 ops_per_s=40679.3
+CSV: ML-KEM-1024 encaps n=200 mean_us=26.47 min_us=25.60 max_us=62.51 ops_per_s=37782.6
+CSV: ML-KEM-1024 decaps n=200 mean_us=34.90 min_us=33.32 max_us=78.79 ops_per_s=28654.3
+SIZE: X25519 pubkey=32 (expected 32) OK
+SIZE: X25519 ss=32 (expected 32) OK
+CSV: X25519 keygen n=200 mean_us=51.96 min_us=50.55 max_us=72.99 ops_per_s=19243.9
+CSV: X25519 derive n=200 mean_us=53.45 min_us=51.44 max_us=169.66 ops_per_s=18707.8
+SIZE: P-256 pubkey=65 (expected 65) OK
+SIZE: P-256 ss=32 (expected 32) OK
+CSV: P-256 keygen n=200 mean_us=19.24 min_us=18.35 max_us=30.25 ops_per_s=51977.8
+CSV: P-256 derive n=200 mean_us=75.87 min_us=67.81 max_us=1282.77 ops_per_s=13180.8
+SIZE: P-384 pubkey=97 (expected 97) OK
+SIZE: P-384 ss=48 (expected 48) OK
+CSV: P-384 keygen n=200 mean_us=1122.32 min_us=1093.40 max_us=1499.27 ops_per_s=891.0
+CSV: P-384 derive n=200 mean_us=1115.05 min_us=1080.10 max_us=2336.51 ops_per_s=896.8
+bench_kem: failures=0 ALL CHECKS PASSED
