@@ -1,0 +1,29 @@
+hybrid: label=downgrade-no-common-group server_group=SecP384r1MLKEM1024 client_group=X25519MLKEM768 provider_dir=/tmp/mlkem-hybrid-repro.6kqbP3/pack/../work/oqs-opt-mod n=10 port=18443 expect_fail=1
+date: 2026-11-13 00:24:14 UTC
+openssl version: OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+provider: -rwxrwx--- 1 root root 10511000 Nov 13 00:23 /tmp/mlkem-hybrid-repro.6kqbP3/pack/../work/oqs-opt-mod/oqsprovider.so
+provider sha256: 32f64d9cc03b00bf164377451ec5cca0cd3a1fee385b8bb09c74178bbb828e4c
+server cert: /tmp/mlkem-hybrid-repro.6kqbP3/pack/../work/certs/ecdsa-server.crt
+server cert:         Signature Algorithm: ecdsa-with-SHA256
+server pid=109600 procstat-before: cpu_total_s=0.090 utime_s=0.090 stime_s=0.000 rss_kb=9396
+4077A268837F0000:error:0A000065:SSL routines:final_key_share:no suitable key share:../ssl/statem/extensions.c:1413:
+trace: no New TLSv1.3 session (handshake did not complete)
+trace: no Server Temp Key line (handshake did not complete)
+trace: ClientHello total bytes=1378 (incl. 4-byte handshake header)
+trace: key_share extension length=1222 list_len=1220 group=0x11ec key_exchange_len=1216
+4077A268837F0000:error:0A000065:SSL routines:final_key_share:no suitable key share:../ssl/statem/extensions.c:1413:
+4077A268837F0000:error:0A000065:SSL routines:final_key_share:no suitable key share:../ssl/statem/extensions.c:1413:
+4077A268837F0000:error:0A000065:SSL routines:final_key_share:no suitable key share:../ssl/statem/extensions.c:1413:
+4077A268837F0000:error:0A000065:SSL routines:final_key_share:no suitable key share:../ssl/statem/extensions.c:1413:
+4077A268837F0000:error:0A000065:SSL routines:final_key_share:no suitable key share:../ssl/statem/extensions.c:1413:
+4077A268837F0000:error:0A000065:SSL routines:final_key_share:no suitable key share:../ssl/statem/extensions.c:1413:
+4077A268837F0000:error:0A000065:SSL routines:final_key_share:no suitable key share:../ssl/statem/extensions.c:1413:
+4077A268837F0000:error:0A000065:SSL routines:final_key_share:no suitable key share:../ssl/statem/extensions.c:1413:
+4077A268837F0000:error:0A000065:SSL routines:final_key_share:no suitable key share:../ssl/statem/extensions.c:1413:
+4077A268837F0000:error:0A000065:SSL routines:final_key_share:no suitable key share:../ssl/statem/extensions.c:1413:
+handshake failures: 0 / 10
+server pid=109600 procstat-after: cpu_total_s=0.090 utime_s=0.090 stime_s=0.000 rss_kb=9524
+handshake summary (downgrade-no-common-group, server=SecP384r1MLKEM1024 client=X25519MLKEM768): n=10 mean=11.60 ms median=11.50 ms min=11 ms max=13 ms stdev=0.70 ms
+handshake times ms: 13 11 12 11 11 12 11 12 12 11
+hybrid: DONE label=downgrade-no-common-group server_group=SecP384r1MLKEM1024 client_group=X25519MLKEM768
+hybrid: EXPECTED-FAILURE CONTROL PASSED (all 10 handshakes failed as expected)

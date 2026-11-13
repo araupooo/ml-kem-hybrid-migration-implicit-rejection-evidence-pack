@@ -1,0 +1,20 @@
+hybrid: label=downgrade-hybrid-both server_group=X25519MLKEM768 client_group=X25519MLKEM768 provider_dir=/tmp/mlkem-hybrid-repro.6kqbP3/pack/../work/oqs-opt-mod n=10 port=18443 expect_fail=0
+date: 2026-11-13 00:24:07 UTC
+openssl version: OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+provider: -rwxrwx--- 1 root root 10511000 Nov 13 00:23 /tmp/mlkem-hybrid-repro.6kqbP3/pack/../work/oqs-opt-mod/oqsprovider.so
+provider sha256: 32f64d9cc03b00bf164377451ec5cca0cd3a1fee385b8bb09c74178bbb828e4c
+server cert: /tmp/mlkem-hybrid-repro.6kqbP3/pack/../work/certs/ecdsa-server.crt
+server cert:         Signature Algorithm: ecdsa-with-SHA256
+server pid=109234 procstat-before: cpu_total_s=0.080 utime_s=0.080 stime_s=0.000 rss_kb=9676
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+trace: no Server Temp Key line (handshake did not complete)
+trace: ClientHello total bytes=1378 (incl. 4-byte handshake header)
+trace: key_share extension length=1222 list_len=1220 group=0x11ec key_exchange_len=1216
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Verify return code: 0 (ok)
+handshake failures: 0 / 10
+server pid=109234 procstat-after: cpu_total_s=0.110 utime_s=0.100 stime_s=0.010 rss_kb=11168
+handshake summary (downgrade-hybrid-both, server=X25519MLKEM768 client=X25519MLKEM768): n=10 mean=18.90 ms median=18.00 ms min=17 ms max=27 ms stdev=2.92 ms
+handshake times ms: 19 19 18 18 27 18 18 18 17 17
+hybrid: DONE label=downgrade-hybrid-both server_group=X25519MLKEM768 client_group=X25519MLKEM768
+hybrid: ALL 10 HANDSHAKES OK
