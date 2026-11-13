@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ML-KEM Hybrid Migration and Implicit-Rejection Assessment</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2em auto; padding: 0 1em; line-height: 1.5; color: #111; }
+h1 { font-size: 1.6em; } h2 { font-size: 1.25em; margin-top: 1.5em; }
+table { border-collapse: collapse; margin: 0.5em 0; }
+th, td { border: 1px solid #ccc; padding: 4px 10px; text-align: left; }
+th { background: #f0f0f0; } td.num { text-align: right; }
+code { background: #f4f4f4; padding: 1px 4px; }
+pre { background: #f4f4f4; padding: 10px; overflow-x: auto; }
+</style>
+</head>
+<body>
+<h1>ML-KEM Hybrid Migration and Implicit-Rejection Assessment</h1>
+<p>A public, third-party-rerunnable assessment of ML-KEM-512/768/1024
+using pinned real implementations (liboqs 0.16.0, oqs-provider 0.12.0,
+system OpenSSL 3.0.13), classical baselines (X25519, P-256, P-384), and
+TLS 1.3-style hybrid key exchange (RFC 10024). Every measured claim
+connects to a runnable script and its unedited output.</p>
+
+<h2>Headline results</h2>
+<ul>
+<li><strong>Sizes verified exactly:</strong> ML-KEM ek/ct match FIPS 203 Table 3
+(512: 800/768; 768: 1184/1088; 1024: 1568/1568); X25519 32 bytes (RFC 7748).</li>
+<li><strong>Implicit rejection verified:</strong> 2100 tampered-ciphertext trials —
+decapsulation returned success 2100/2100 with a pseudorandom secret that never
+equalled the valid secret (0 accepted), deterministic 2100/2100. Control: 600/600.</li>
+<li><strong>Hybrid handshakes:</strong> X25519MLKEM768 19.3 ms mean vs X25519 16.83 ms
+(14.7% overhead); SecP384r1MLKEM1024 39.47 ms. Zero failures in 210 group handshakes.</li>
+<li><strong>Downgrade:</strong> 4/4 scenarios PASS.</li>
+<li><strong>Findings:</strong> 10 total — 4 Medium, 4 Low, 2 Info.</li>
+</ul>
+
+<h2>KEM timings (mean of two 200-iteration runs, microseconds)</h2>
+<table>
+<tr><th>Operation</th><th>ML-KEM-512</th><th>ML-KEM-768</th><th>ML-KEM-1024</th><th>X25519</th><th>P-256</th><th>P-384</th></tr>
+<tr><td>keygen</td><td class="num">13.10</td><td class="num">20.92</td><td class="num">25.52</td><td class="num">52.49</td><td class="num">19.20</td><td class="num">1131.31</td></tr>
+<tr><td>encaps</td><td class="num">14.34</td><td class="num">20.13</td><td class="num">26.30</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+<tr><td>decaps</td><td class="num">17.19</td><td class="num">25.71</td><td class="num">34.75</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+<tr><td>derive</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">54.02</td><td class="num">73.66</td><td class="num">1113.70</td></tr>
+</table>
+
+<h2>Hybrid TLS 1.3 handshakes (30 each, milliseconds)</h2>
+<table>
+<tr><th>Group</th><th>Mean</th><th>Median</th><th>Key share</th><th>ClientHello</th><th>Server CPU/hs</th><th>Negotiated</th></tr>
+<tr><td>X25519MLKEM768</td><td class="num">19.30</td><td class="num">19.00</td><td class="num">1216</td><td class="num">1378</td><td class="num">3.000</td><td>X25519MLKEM768</td></tr>
+<tr><td>x25519_mlkem512</td><td class="num">18.80</td><td class="num">18.00</td><td class="num">832</td><td class="num">994</td><td class="num">2.667</td><td>x25519_mlkem512</td></tr>
+<tr><td>SecP256r1MLKEM768</td><td class="num">30.53</td><td class="num">30.00</td><td class="num">1249</td><td class="num">1411</td><td class="num">3.667</td><td>SecP256r1MLKEM768</td></tr>
+<tr><td>SecP384r1MLKEM1024</td><td class="num">39.47</td><td class="num">38.00</td><td class="num">1665</td><td class="num">1827</td><td class="num">7.667</td><td>SecP384r1MLKEM1024</td></tr>
+<tr><td>X25519</td><td class="num">16.83</td><td class="num">17.00</td><td class="num">32</td><td class="num">202</td><td class="num">2.667</td><td>X25519</td></tr>
+<tr><td>P-256</td><td class="num">17.30</td><td class="num">17.00</td><td class="num">65</td><td class="num">235</td><td class="num">2.667</td><td>P-256</td></tr>
+<tr><td>P-384</td><td class="num">22.70</td><td class="num">23.00</td><td class="num">97</td><td class="num">267</td><td class="num">5.333</td><td>P-384</td></tr>
+</table>
+
+<h2>Headline finding</h2>
+<p><strong>F-01 (Medium):</strong> there is no X25519 hybrid group for ML-KEM-1024
+in RFC 10024 or oqs-provider 0.12.0 — category 5 pairs with P-384 only
+(SecP384r1MLKEM1024). See <a href="findings-report.md">findings-report.md</a>
+and <a href="findings.json">findings.json</a>.</p>
+
+<h2>Reproduce</h2>
+<pre>./scripts/run_all.sh            # single entry point: build + measure + aggregate
+./scripts/clean_reproduce.sh    # fresh-environment reproduction (keeps its temp dir)
+./scripts/verify_digests.sh     # sha256sum -c SHA256SUMS</pre>
+<p>Documents: <a href="methodology.md">methodology</a> ·
+<a href="citations.md">citations</a> ·
+<a href="findings-report.md">findings report</a> ·
+<a href="decision-memo.md">decision memo</a> ·
+<a href="claim-evidence-index.md">claim-to-evidence index</a> ·
+<a href="run-manifest.md">run manifest</a></p>
+<p>Sources: FIPS 203, RFC 10024, RFC 9954, RFC 9846, RFC 7748, RFC 9794.</p>
+</body>
+</html>
