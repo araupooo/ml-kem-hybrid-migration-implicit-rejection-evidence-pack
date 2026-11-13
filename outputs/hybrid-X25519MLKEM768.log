@@ -1,0 +1,20 @@
+hybrid: label=X25519MLKEM768 server_group=X25519MLKEM768 client_group=X25519MLKEM768 provider_dir=/home/hatch/workspace/goals/postfiat-task-node-connection/hidden_files/task-c2eb7e1a4fe2d5c27079918915653329/pack/../work/oqs-opt-mod n=30 port=18443 expect_fail=0
+date: 2026-11-12 23:35:38 UTC
+openssl version: OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+provider: -rwxrwx--- 1 root nogroup 10511000 Nov 12 23:35 /home/hatch/workspace/goals/postfiat-task-node-connection/hidden_files/task-c2eb7e1a4fe2d5c27079918915653329/pack/../work/oqs-opt-mod/oqsprovider.so
+provider sha256: 35697374ad440b46a9a26281b9d53ea67c8625d51a24bc0c677a8547dfed468b
+server cert: /home/hatch/workspace/goals/postfiat-task-node-connection/hidden_files/task-c2eb7e1a4fe2d5c27079918915653329/pack/../work/certs/ecdsa-server.crt
+server cert:         Signature Algorithm: ecdsa-with-SHA256
+server pid=44668 procstat-before: cpu_total_s=0.100 utime_s=0.100 stime_s=0.000 rss_kb=9656
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+trace: no Server Temp Key line (handshake did not complete)
+trace: ClientHello total bytes=1378 (incl. 4-byte handshake header)
+trace: key_share extension length=1222 list_len=1220 group=0x11ec key_exchange_len=1216
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Verify return code: 0 (ok)
+handshake failures: 0 / 30
+server pid=44668 procstat-after: cpu_total_s=0.190 utime_s=0.170 stime_s=0.020 rss_kb=11044
+handshake summary (X25519MLKEM768, server=X25519MLKEM768 client=X25519MLKEM768): n=30 mean=19.30 ms median=19.00 ms min=18 ms max=23 ms stdev=1.39 ms
+handshake times ms: 19 18 20 21 19 18 22 21 23 18 18 18 19 20 18 19 18 18 19 20 20 20 21 20 18 18 21 19 18 18
+hybrid: DONE label=X25519MLKEM768 server_group=X25519MLKEM768 client_group=X25519MLKEM768
+hybrid: ALL 30 HANDSHAKES OK

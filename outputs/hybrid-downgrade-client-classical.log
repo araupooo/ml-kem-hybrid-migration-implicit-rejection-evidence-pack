@@ -1,0 +1,21 @@
+hybrid: label=downgrade-client-classical server_group=X25519MLKEM768:X25519 client_group=X25519 provider_dir=/home/hatch/workspace/goals/postfiat-task-node-connection/hidden_files/task-c2eb7e1a4fe2d5c27079918915653329/work/oqs-opt-mod n=10 port=18443 expect_fail=0
+date: 2026-11-12 23:38:40 UTC
+openssl version: OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+provider: -rwxrwx--- 1 root nogroup 10511000 Nov 12 23:35 /home/hatch/workspace/goals/postfiat-task-node-connection/hidden_files/task-c2eb7e1a4fe2d5c27079918915653329/work/oqs-opt-mod/oqsprovider.so
+provider sha256: 35697374ad440b46a9a26281b9d53ea67c8625d51a24bc0c677a8547dfed468b
+server cert: /home/hatch/workspace/goals/postfiat-task-node-connection/hidden_files/task-c2eb7e1a4fe2d5c27079918915653329/pack/../work/certs/ecdsa-server.crt
+server cert:         Signature Algorithm: ecdsa-with-SHA256
+server pid=47345 procstat-before: cpu_total_s=0.090 utime_s=0.090 stime_s=0.000 rss_kb=9732
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Server Temp Key: X25519, 253 bits
+trace: ClientHello total bytes=202 (incl. 4-byte handshake header)
+trace: key_share extension length=38 list_len=36 group=0x001d key_exchange_len=32
+Server Temp Key: X25519, 253 bits
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Verify return code: 0 (ok)
+handshake failures: 0 / 10
+server pid=47345 procstat-after: cpu_total_s=0.120 utime_s=0.110 stime_s=0.010 rss_kb=10220
+handshake summary (downgrade-client-classical, server=X25519MLKEM768:X25519 client=X25519): n=10 mean=18.70 ms median=18.00 ms min=16 ms max=25 ms stdev=2.50 ms
+handshake times ms: 18 16 18 18 25 19 20 17 17 19
+hybrid: DONE label=downgrade-client-classical server_group=X25519MLKEM768:X25519 client_group=X25519
+hybrid: ALL 10 HANDSHAKES OK
