@@ -1,6 +1,6 @@
 db2608d54004a634f242190b2f4c30f054b5abe7aafc7644f18bc0eec868e462  ./README.md
 538095b7d9388af5479c5b6af52557c7c545912d3aaf1cb8cd1e2ba1097f2da8  ./configs/findings-definitions.json
-c7252284f1ee233a4729c02a948abff9679295222dcfb27a6a5243db43c08fa7  ./configs/hybrid-groups.md
+5abe2223779acb26a47895a2132ff9486b326c128536215f798d6d6ff2107edf  ./configs/hybrid-groups.md
 c370390f1e89b789331056eb19e6eadd87b18f134cf46861bb201dbef8bed3af  ./configs/kem-params.md
 1a8b8cced8c7be16a573fcc3e8f938ebd7a425cd5e54cf9b957444e4828c3882  ./configs/openssl-providers.cnf
 25e699e3900dbebf8dd7c9aeb3b2adfd7f8e56b5f1a2ddc04928d01d824101a7  ./configs/rubric.md
