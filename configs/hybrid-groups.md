@@ -37,12 +37,17 @@ Terminology: RFC 9794. TLS 1.3: RFC 9846 (July 2026).
 
 | oqs-provider group name | TLS code point | Notes |
 |---|---|---|
-| `x25519_mlkem512` | 0x11EA | Pre-standard naming; ML-KEM-512 + X25519 (not in RFC 10024) |
 | `SecP256r1MLKEM512` | 0x11E9 | ML-KEM-512 + P-256 (not in RFC 10024) |
+| `x25519_mlkem512` | 0x11EA | Pre-standard naming; ML-KEM-512 + X25519 (not in RFC 10024) |
+| `bp256_mlkem512` | 65056 | ML-KEM-512 + Brainpool P-256 (not in RFC 10024) |
+| `p384_mlkem768` | 0x2F4C | ML-KEM-768 + P-384 (not in RFC 10024) |
+| `x448_mlkem768` | 0x2FB7 | ML-KEM-768 + X448 (not in RFC 10024) |
+| `bp384_mlkem768` | 65057 | ML-KEM-768 + Brainpool P-384 (not in RFC 10024) |
 | `X25519MLKEM768` | 0x11EC | RFC 10024, Recommended |
 | `SecP256r1MLKEM768` | 0x11EB | RFC 10024 |
-| `SecP384r1MLKEM1024` | 0x11ED | RFC 10024 |
 | `p521_mlkem1024` | 0x2F4D | ML-KEM-1024 + P-521 (not in RFC 10024) |
+| `SecP384r1MLKEM1024` | 0x11ED | RFC 10024 |
+| `bp512_mlkem1024` | 65058 | ML-KEM-1024 + Brainpool P-512 (not in RFC 10024) |
 
 ## Key finding: no X25519 hybrid group for ML-KEM-1024
 
